@@ -4,12 +4,13 @@ from utils import clear, load, load_images
 import sys
 
 
+clear()
+load()
+load_images()
+
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         app.debug = True
-        clear()
-        load()
-        load_images()
         app.run(host='0.0.0.0', port=5000)
 
     elif len(sys.argv) == 2:
