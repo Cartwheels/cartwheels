@@ -2,6 +2,7 @@
 # Models represent individual entries in a database, while Collections
 # represent entire collections in a databse
 from pymongo import Connection
+from urlparse import urlparse
 from gridfs import GridFS
 from datetime import datetime
 from website.settings import DB_NAME, COLLECTIONS, IGNORE_ATTRS, MONGO_URL
