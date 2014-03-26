@@ -4,10 +4,6 @@ from utils import clear, load, load_images
 import sys
 
 
-clear()
-load()
-load_images()
-
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         app.debug = True
