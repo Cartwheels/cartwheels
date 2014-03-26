@@ -1,0 +1,67 @@
+<html>
+  <link rel="icon" 
+      type="image/png" 
+      href="{{url_for('static', filename='images/favicon.ico')}}">
+  <head>
+    <!--include javascript files-->
+    <script type="text/javascript" src="{{ url_for('static', filename='include/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='include/imagesloaded.pkgd.min.js') }}"></script>
+
+    <!--stylesheets-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    {% endblock %}
+
+    <div class="left-sidebar">
+    {% block left_sidebar %}
+    {% endblock %}
+    </div>
+
+    <div class="main-content middle-bar">
+    {% block main_content %}
+    {% endblock %}
+    </div>
+
+    <div class="right-sidebar">
+    {% block right_sidebar %}
+    {% endblock %}
+    </div>
+
+    <div id=header>
+      <div class="header-links header-links-left">
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="/">About</a>
+      </div>
+
+      <!--search input to find carts-->
+      <div id=input-container class=centered-absolute>
+        <div id=search-input>
+          <input id=kwds class="input main-search" type=text value="{{ keywords }}" placeholder="Find a food cart by name, food type, or tags">
+          <input id=loc class="input main-search" type=text value="{{ location }}"placeholder="Around...">
+        </div>
+      </div>
+
+      <div class="header-links header-links-right">
+        {% if user == None %}
+        <a href="{{url_for('register')}}">Register</a>
+        <a href="{{url_for('login')}}">Login</a>
+
+        {% else %}
+        <a href="{{url_for('profile')}}">Profile</a>
+        <a href="{{url_for('logout')}}">Logout</a>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/page-utils.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/header.js') }}"></script>
+  {% block scripts %}
+  {% endblock %}
+</html>

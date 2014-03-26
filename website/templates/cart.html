@@ -1,0 +1,272 @@
+{% extends "reviews_layout.html" %}
+
+{% block head_continued %}
+<script type="text/javascript" src="{{ url_for('static', filename='include/jquery.cycle.all.js') }}"></script>
+
+<style>
+  .profile-image {
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    background-color: #eee;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .profile-image img {
+    position: absolute;
+    margin: auto;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .cart-info {
+    margin-top: 50px;
+    width: 350px;
+    margin-left: 400px;
+    margin-right: auto;
+  }
+
+  .meta {
+    margin-bottom: 5px;
+    font-size: 20px;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .info {
+    margin-bottom: 15px;
+  }
+
+  .extra-info {
+    width: 215px;
+    margin-top: -200px;
+    margin-left: 100px;
+    height: 200px;
+  }
+
+  .extra-info .link {
+    margin-top: 20px;
+    line-height: 10px;
+    text-align: center;
+  }
+
+  .cart-tags {
+    display: inline-block;
+    line-height: 35px;
+  }
+
+  .cart-tags span {
+    font-size: 15px;
+    background-color: #efefef;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 3px;
+  }
+
+  .cart-tags span:hover {
+    background-color: #999999;
+  }
+
+  span a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .form {
+    width: 60%;
+  }
+
+  .rating {
+    float:left;
+    width:300px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+  .rating span { float:right; position:relative; }
+  .rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+  }
+  .rating span label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+  }
+  .rating span:hover ~ span label,
+  .rating span:hover label,
+  .rating span.checked label,
+  .rating span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+  }
+
+  .form-input {
+    width: 300px;
+  }
+
+  #gallery-cart {
+    margin-top: 50px;
+    margin-left: 100px;
+    width: 225px;
+  }
+</style>
+{% endblock %}
+
+
+{% block before_reviews %}
+<div id=gallery-cart>
+
+{% if cart.image_paths|length > 0 %}
+{% for path in cart.image_paths %}
+<div class="profile-image">
+  <img src={{path}}>
+</div>
+{% endfor %}
+
+{% else %}
+<div class="profile-image">
+  <img src="{{url_for('serve_default')}}">
+</div>
+{% endif %}
+</div>
+
+<div class="cart-info">
+  <div class="meta">
+    Name
+  </div>
+  <div class="name info">
+    {% if cart.name != '' %}
+      {{cart.name}}
+
+    {% else %}
+      Unknown
+    {% endif %}
+  </div>
+
+  <div class="meta">
+    Owner
+  </div>
+  <div class="owner info">
+    {% if cart.owner != '' %}
+      {{cart.owner}}
+
+    {% else %}
+      Unknown
+    {% endif %}
+  </div>
+
+  <div class="meta">
+    Zip Code
+  </div>
+  <div class="zip info">
+    {% if cart.zip_code != '' %}
+      {{cart.zip_code}}
+
+    {% else %}
+      Unknown
+    {% endif %}
+  </div>
+
+  <div class="meta">
+    Rating
+  </div>
+  <div class="info">
+    {{cart.rating}}
+  </div>
+
+  <div class="meta">
+    Registration Number
+  </div>
+  <div class="info">
+    {% if cart.permit_number != '' %}
+      {{cart.permit_number}}
+
+    {% else %}
+      Unknown
+    {% endif %}
+  </div>
+
+  <div class="meta">
+    Permit Issued
+  </div>
+  <div class="info">
+    {% if cart.issuance != '' %}
+      {{cart.issuance}}
+
+    {% else %}
+      Unknown
+    {% endif %}
+  </div>
+
+  <div class="meta">
+    Permit Expires
+  </div>
+  <div class="info">
+    {% if cart.expiration != '' %}
+      {{cart.expiration}}
+
+    {% else %}
+      Unknown
+    {% endif %}
+  </div>
+</div>
+
+<div class="extra-info">
+  <div class="cart-tags">
+    {% for tag in cart.tags %}
+    <span><a href=#>{{tag}}</a></span>
+    {% endfor %}
+  </div>
+
+  <div class=link>
+    <a href={{cart.url_path + '/menu'}}>View Menu</a>
+  </div>
+  <div class=link>
+    <a href={{cart.url_path + '/directions'}}>Get Directions</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block after_reviews %}
+{% if user != None %}
+<div class="form">
+  <div class="form-header">Add a review</div>
+
+  <form method=POST>
+    <div class=rating>
+    {% for i in range(5,0,-1) %}
+    <span><input id="str{{i}}" type=radio name=rating value={{i}}><label for="str{{i}}"></label></span>
+    {% endfor %}
+    </div>
+    <textarea rows="15" cols="50" class="form-textarea required" name="review" placeholder="Review text"></textarea>
+    <input class="input form-input" name="tags" type=text placeholder="Input tags delimited by commas">
+    <input type=submit name=button value="Submit review">
+  </form>
+</div>
+
+<div class="form-errors">
+  {{error}}
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/form-utils.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/cart-widget.js') }}"></script>
+{% endblock %}
