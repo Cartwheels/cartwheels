@@ -38,10 +38,11 @@ class Collection(object):
     def __init__(self, model=Model):
         if MONGO_URL:
             conn = Connection(MONGO_URL)
+            self.db = conn[urlparse(MONGO_URL).path[1:]]
         else:
             conn = Connection('localhost', 27017)
+            self.db = conn[DB_NAME]
 
-        self.db = conn[DB_NAME]
         self.fs = GridFS(self.db)
         self.objects = self.db[COLLECTIONS[self.__class__.__name__]]
         self.name = COLLECTIONS[self.__class__.__name__]
