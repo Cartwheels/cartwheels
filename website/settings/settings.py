@@ -21,4 +21,3 @@ COLLECTIONS = {
         }
 
 IGNORE_ATTRS = ['_obj', 'collection', 'fs', 'db']
-
