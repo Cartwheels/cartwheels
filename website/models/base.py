@@ -1,10 +1,10 @@
 # Models and Collections (abstract classes)
 # Models represent individual entries in a database, while Collections
 # represent entire collections in a databse
-from pymongo import MongoClient
+from pymongo import Connection
 from gridfs import GridFS
 from datetime import datetime
-from website.settings import DB_NAME, COLLECTIONS, IGNORE_ATTRS
+from website.settings import DB_NAME, COLLECTIONS, IGNORE_ATTRS, MONGO_URL
 
 
 class Model(object):
@@ -36,8 +36,12 @@ class Model(object):
 class Collection(object):
 
     def __init__(self, model=Model):
-        client = MongoClient()
-        self.db = client[DB_NAME]
+        if MONGO_URL:
+            conn = Connection(MONGO_URL)
+        else:
+            conn = Connection('localhost', 27017)
+
+        self.db = conn[DB_NAME]
         self.fs = GridFS(self.db)
         self.objects = self.db[COLLECTIONS[self.__class__.__name__]]
         self.name = COLLECTIONS[self.__class__.__name__]

@@ -1,10 +1,15 @@
+import os
+
 # Application
 SECRET_KEY = "}. 2}MpuI3J[yYGg8*b9jL&;%Lyt(WhxxhlFaoadm}sQjaVF+/z`vs~#qd@ Spd8"
 STORE_FILE = "website/settings/store.info"
 DIST_OFFSET = 0.01
 
 # Mongodb
+MONGO_URL = os.environ.get('MONGOHQ_URL')
+
 DB_NAME = 'cartwheels'
+
 COLLECTIONS = {
         'User': 'users',
         'Cart': 'carts',
@@ -16,3 +21,4 @@ COLLECTIONS = {
         }
 
 IGNORE_ATTRS = ['_obj', 'collection', 'fs', 'db']
+
