@@ -4,7 +4,9 @@ MarkupSafe==0.19
 Werkzeug==0.9.4
 bson==0.3.3
 gunicorn==18.0
-itsdangerous==0.23
+itsdangerous==0.24
 pymongo==2.6.3
 pytz==2014.2
+requests==2.2.1
+stripe==1.12.2
 wsgiref==0.1.2
