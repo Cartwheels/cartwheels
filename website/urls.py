@@ -2,6 +2,7 @@ from website import app, views
 
 # Home and search
 app.add_url_rule('/', view_func=views.index)
+app.add_url_rule('/about', view_func=views.about)
 app.add_url_rule('/search', view_func=views.search_results)
 
 # Carts
@@ -18,10 +19,8 @@ app.add_url_rule('/register', view_func=views.register, methods=['GET', 'POST'])
 
 # Ads
 app.add_url_rule('/ads', view_func=views.ads_page, methods=['GET', 'POST'])
-app.add_url_rule('/ad/<name>', view_func=views.purchase_ad, methods=['GET', 'POST'])
-# Data
-# Data
 
+# Data
 app.add_url_rule('/_search', view_func=views.search_data)
 app.add_url_rule('/_serve', view_func=views.serve_data)
 app.add_url_rule('/_image/<image_id>', view_func=views.serve_image)

@@ -95,7 +95,7 @@ def register():
 
             if users.find_one(username=email) is None:
                 user = users.insert(first_name=first, last_name=last,
-                        username=email, password=password, is_owner=False)
+                        username=email, password=password, is_owner=False, ad_type=0)
                 session['username'] = user.username
                 return redirect(url_for('index'))
 

@@ -13,6 +13,11 @@ def index():
     return render_template('index.html', **context)
 
 
+def about():
+    context = base_context()
+    return render_template('about.html', **context)
+
+
 def search_results():
     context = base_context()
     context['keywords'] = request.args.get('kwds', '')

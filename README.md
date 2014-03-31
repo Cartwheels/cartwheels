@@ -14,6 +14,7 @@ Link to the website [cartwheels](http://cartwheels.herokuapp.com)
 ## Dependencies
 
 ### Python
+- virtualenv
 - Flask
 - bson
 - gunicorn
