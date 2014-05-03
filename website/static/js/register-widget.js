@@ -7,7 +7,7 @@ $(function () {
     var toggleDescription = function (e) {
         var $this = $(this),
             $info = $this.parent().find('.description');
-        
+
         console.log(this.parentNode);
 
         if ($info.hasClass('hidden')) {

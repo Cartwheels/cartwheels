@@ -1,0 +1,14 @@
+.toggle-desc {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #6B6BB2;
+}
+
+.description {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+}

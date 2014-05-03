@@ -1,0 +1,120 @@
+.profile-image {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  background-color: #eee;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profile-image img {
+  position: absolute;
+  margin: auto;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.cart-info {
+  margin-top: 50px;
+  width: 350px;
+  margin-left: 400px;
+  margin-right: auto;
+}
+
+.meta {
+  margin-bottom: 5px;
+  font-size: 20px;
+  border-bottom: 1px solid #bbb;
+}
+
+.info {
+  margin-bottom: 15px;
+}
+
+.extra-info {
+  width: 215px;
+  margin-top: -200px;
+  margin-left: 100px;
+  height: 200px;
+}
+
+.extra-info .link {
+  margin-top: 20px;
+  line-height: 10px;
+  text-align: center;
+}
+
+.cart-tags {
+  display: inline-block;
+  line-height: 35px;
+}
+
+.cart-tags span {
+  font-size: 15px;
+  background-color: #efefef;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 3px;
+}
+
+.cart-tags span:hover {
+  background-color: #999999;
+}
+
+span a {
+  text-decoration: none;
+  color: black;
+}
+
+.form {
+  width: 60%;
+}
+
+.rating {
+  float:left;
+  width:300px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+  position:absolute;
+  top:0px;
+  left:0px;
+  opacity:0;
+}
+.rating span label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align:center;
+  color:#FFF;
+  background:#ccc;
+  font-size:30px;
+  margin-right:2px;
+  line-height:30px;
+  border-radius:50%;
+  -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+  background:#F90;
+  color:#FFF;
+}
+
+.form-input {
+  width: 300px;
+}
+
+#gallery-cart {
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 225px;
+}

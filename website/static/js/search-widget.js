@@ -35,7 +35,7 @@ $(function () {
                 datum.zip_code = 'Unknown';
             }
             if (datum.rating == null) {
-                datum.rating = 'Not Available';
+                datum.rating = '0';
             }
 
             var $item = $('<li></li>');
@@ -66,7 +66,7 @@ $(function () {
 
             $contentDiv.addClass('content-meta');
 
-            $rating.addClass('rating');
+            $rating.addClass('rating-item');
             $rating.text(datum.rating);
 
             $name.addClass('name');
@@ -88,14 +88,6 @@ $(function () {
 
             $item.append($contentDiv);
 
-            //add tags
-            //$tagsDiv.addClass('tags-meta');
-            //$.each(datum.tags, function (index, tag) {
-            //    $tagsDiv.append('<span>' + tag + '</span>');
-            //});
-
-            //$item.append($tagsDiv);
-
             //append item
             $searchResults.append($item);
         });
@@ -111,6 +103,7 @@ $(function () {
 
         resizeImages($mainContent.get(0), targetImgHeight);
         borderLast();
+        createRatings();
     };
 
     //When the search term is submitted
@@ -121,7 +114,7 @@ $(function () {
 
         $prevPage.addClass('hidden');
         $nextPage.addClass('hidden');
-        
+
         $(window).scrollTop(0);
 
         //Grab the values from the fields
