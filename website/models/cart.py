@@ -1,5 +1,4 @@
 # Models and Collections for carts
-from operator import attrgetter
 from website.models.base import Collection, Model
 from website.models.review import Review
 from website.models.tag import Tag
