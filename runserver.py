@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 from website import app
-from utils import clear, load, load_images
+from utils import clear, load, load_images, add_zips
 import sys
 
 
@@ -16,6 +16,8 @@ if __name__ == '__main__':
             load()
         elif sys.argv[1] == 'load_images':
             load_images()
+        elif sys.argv[1] == 'add_zips':
+            add_zips()
         else:
             print "error starting server: could not interpret argument"
     else:

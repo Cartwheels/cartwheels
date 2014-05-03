@@ -1,7 +1,6 @@
 #!/usr/local/bin/python
 from website import carts
-import urllib2
-import json
+import json, urllib2
 
 
 def load():
