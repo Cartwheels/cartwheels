@@ -4,9 +4,7 @@ from website.views.utils import base_context
 from website.settings import STRIPE_SECRET_KEY
 from website import users
 
-
 stripe.api_key = STRIPE_SECRET_KEY
-
 
 def ads_page():
     context = base_context()

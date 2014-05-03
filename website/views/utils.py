@@ -43,7 +43,7 @@ def unique_objs(seq):
 
 # Get carts near a certain location
 def get_carts_near(address, offset, number, search_object={}):
-    # Geocode an address using a google maps api
+    # Make this into a helper
     data = urllib2.urlopen('http://maps.googleapis.com/maps/api/geocode/json?api_key%s&sensor=false&address=%s' % (api_key, urllib.quote(address)))
     data = json.loads(data.read())
     geometry = data['results'][0]['geometry']
