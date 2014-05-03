@@ -1,70 +1,7 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<style>
-  .menu-item {
-    position: relative;
-    width: 500px;
-    height: 100px;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
-  }
-
-  .menu-image {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    height: 75px;
-    overflow: hidden;
-    border: 3px solid #222;
-  }
-
-  .menu-name {
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  .menu-tags {
-    padding: 5px;
-  }
-
-  .menu-tags span {
-    color: #0066FF;
-  }
-
-  .menu-price {
-    position: absolute;
-    right: 10px;
-    bottom: 5px;
-    background-color: #A971A9;
-    padding: 4px;
-    border-radius: 2px;
-  }
-
-  #menu {
-    margin-left: 50px;
-    margin-top: 50px;
-  }
-
-  #menu-form {
-    margin-left: 200px;
-  }
-
-  #file {
-    margin-top: 15px;
-    padding: 7px;
-    width: auto;
-    border-radius: 2px;
-    border: 1px solid #aaa;
-    background-color: #fff;
-    color: #aaa;
-    text-align: center;
-  }
-
-  #file:hover {
-    background-color: #eee;
-  }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 {% endblock %}
 
 

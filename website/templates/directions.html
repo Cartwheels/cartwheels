@@ -6,9 +6,9 @@
 <title>Directions</title>
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{API_KEY}}&v=3.exp&sensor=false"></script>
+<script src="{{url_for('static', filename='js/directions.js')}}"></script>
 
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/directions.css')}}">
-<script src="{{url_for('static', filename='js/directions.js')}}"></script>
 
 <script>
   create_map("345 Chambers street, new york, ny", new google.maps.LatLng({{cart.loc[0]}}, {{cart.loc[1]}}), "map-canvas", "directions-panel", "mode");

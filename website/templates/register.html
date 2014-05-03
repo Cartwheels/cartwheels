@@ -1,22 +1,7 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<style>
-  .toggle-desc {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #6B6BB2;
-  }
-
-  .description {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 30px;
-  }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
 {% endblock %}
 
 
@@ -52,7 +37,7 @@
 
   <a class="toggle-desc" href=#>more information</a>
   <div class="description hidden">
-    If you are a cart owner, you can sign up to manage your cart(s) on this website. 
+    If you are a cart owner, you can sign up to manage your cart(s) on this website.
     <br>
     <br>
     After verifying your information, we will upgrade your account, allowing you to add menus to your carts, edit information, modify the photos of your cart, and buy advertisements.

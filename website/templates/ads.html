@@ -1,17 +1,12 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<style>
-  form {
-    text-align: center;
-  }
-</style>
 {% endblock %}
 
 
 {% block main_content %}
 <!--Information about the advertisement-->
-<form class=centered-relative method="POST">
+<form class="centered-relative form-centered" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_B3CMFwr0VDZn5WZWeJPSusbZ"
@@ -24,5 +19,4 @@
 
 
 {% block scripts %}
-
 {% endblock %}

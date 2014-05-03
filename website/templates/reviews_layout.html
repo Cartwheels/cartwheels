@@ -1,58 +1,9 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<style>
-  .reviews-header {
-    border-bottom: 1px solid #aaa;
-    font-weight: normal;
-    width: 600px;
-  }
-
-  .reviews {
-    width: 500px;
-    margin-left: 10px;
-    margin-top: 100px;
-  }
-
-  .review-item {
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    padding: 5px;
-  }
-
-  .review-item:hover {
-    background-color: #eee;
-  }
-
-  .review-rating {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .review-text {
-    width: 400px;
-    padding-bottom: 20px;
-  }
-
-  .rating-element {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    color:#FFF;
-    background:#ccc;
-    text-align:center;
-    font-size:30px;
-    margin-right:2px;
-    line-height:30px;
-    border-radius:50%;
-    -webkit-border-radius:50%;
-  }
-
-  .rating-checked {
-    background:#F90;
-    color:#FFF;
-  }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rating.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/rating-widget.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/review-widget.js') }}"></script>
 {% block head_continued %}
 {% endblock %}
 {% endblock %}
@@ -68,13 +19,8 @@
     <div class=review-user>
       {{rev.user}}
     </div>
-    <div class=review-rating>
-      {% for i in range(0, rev.rating) %}
-      <span class="rating-element rating-checked"></span>
-      {% endfor %}
-      {% for i in range(rev.rating, 5) %}
-      <span class="rating-element"></span>
-      {% endfor %}
+    <div class=rating-item>
+      {{rev.rating}}
     </div>
     <div class=review-text>
       {{rev.text}}
@@ -88,4 +34,7 @@
 
 {% block after_reviews %}
 {% endblock %}
+{% endblock %}
+
+{% block scripts %}
 {% endblock %}
